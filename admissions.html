@@ -1,0 +1,424 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Demo School</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #204080;
+            --secondary-teal: #18b798;
+            --light-blue: #43aeea;
+            --dark-navy: #134074;
+            --accent-violet: #7d49a1;
+            --light-gray: #f4f6f9;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .logo-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+        
+        .logo-container img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .school-title h1 {
+            color: var(--white);
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .school-title p {
+            color: rgba(255,255,255,0.95);
+            font-size: 18px;
+            margin: 5px 0 0 0;
+            font-style: italic;
+        }
+        
+        .navbar {
+            background: var(--primary-blue) !important;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-nav {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            padding: 15px 25px !important;
+            transition: all 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background: var(--secondary-teal);
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-header h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            justify-content: center;
+            margin-bottom: 0;
+        }
+        
+        .breadcrumb-item a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--white);
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h3 {
+            color: var(--primary-blue);
+            font-size: 36px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-teal);
+        }
+        
+        .step-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
+            height: 100%;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .step-card h4 {
+            color: var(--primary-blue);
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .info-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .info-box h4 {
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .info-box ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .info-box ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .info-box ul li i {
+            color: var(--secondary-teal);
+            margin-right: 10px;
+        }
+        
+        .alert-custom {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .alert-custom h3 {
+            margin-bottom: 15px;
+        }
+        
+        .footer-contact {
+            background: var(--dark-navy);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Demo School Logo">
+                <div class="school-title">
+                    <h1>Demo School</h1>
+                    <p>Pioneering Research & Scientific Excellence</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h2>Admissions</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Admissions</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <section class="section" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="alert-custom">
+                <h3><i class="fas fa-bullhorn"></i> Admissions Open for 2026-27</h3>
+                <p>Applications are now being accepted for the academic year 2026-27. Limited seats available!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h3>Admission Process</h3>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Registration</h4>
+                        <p>Fill out the online application form or visit the school office</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Entrance Test</h4>
+                        <p>Appear for aptitude and subject-based entrance examination</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Interview</h4>
+                        <p>Parent and student interview with admission committee</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h4>Enrollment</h4>
+                        <p>Complete documentation and fee payment for admission</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--light-gray);">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <h4>Eligibility Criteria</h4>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> For Grade 6-8: Minimum 60% in previous class</li>
+                            <li><i class="fas fa-check-circle"></i> For Grade 9-10: Strong aptitude in Science & Math</li>
+                            <li><i class="fas fa-check-circle"></i> For Grade 11-12: Based on Grade 10 board results</li>
+                            <li><i class="fas fa-check-circle"></i> Age criteria as per CBSE norms</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-box">
+                        <h4>Required Documents</h4>
+                        <ul>
+                            <li><i class="fas fa-file"></i> Birth Certificate (original + photocopy)</li>
+                            <li><i class="fas fa-file"></i> Transfer Certificate from previous school</li>
+                            <li><i class="fas fa-file"></i> Report cards of last 2 years</li>
+                            <li><i class="fas fa-file"></i> Passport size photographs (4 copies)</li>
+                            <li><i class="fas fa-file"></i> Aadhar card copy (student & parents)</li>
+                            <li><i class="fas fa-file"></i> Medical fitness certificate</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="info-box">
+                        <h4>Fee Structure (2025-26)</h4>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Admission Fee (One-time)</th>
+                                    <th>Annual Tuition Fee</th>
+                                    <th>Total First Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Grade 6-8</td>
+                                    <td>₹25,000</td>
+                                    <td>₹1,20,000</td>
+                                    <td>₹1,45,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Grade 9-10</td>
+                                    <td>₹25,000</td>
+                                    <td>₹1,40,000</td>
+                                    <td>₹1,65,000</td>
+                                </tr>
+                                <tr>
+                                    <td>Grade 11-12</td>
+                                    <td>₹25,000</td>
+                                    <td>₹1,60,000</td>
+                                    <td>₹1,85,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="text-muted"><small>* Fees include lab charges, library, sports facilities. Transport charges separate.</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-contact">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Demo School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

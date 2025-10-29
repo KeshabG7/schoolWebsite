@@ -1,0 +1,1012 @@
+<meta name='viewport' content='width=device-width, initial-scale=1' />
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo School - Excellence in Research & Science Education</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #204080;
+            --secondary-teal: #18b798;
+            --light-blue: #43aeea;
+            --dark-navy: #134074;
+            --accent-violet: #7d49a1;
+            --light-gray: #f4f6f9;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Logo Section */
+        .logo-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .logo-container img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .school-title {
+            text-align: center;
+        }
+
+        .school-title h1 {
+            color: var(--white);
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .school-title p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 18px;
+            margin: 5px 0 0 0;
+            font-style: italic;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: var(--primary-blue) !important;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-nav {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            padding: 15px 25px !important;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background: var(--secondary-teal);
+            color: var(--white) !important;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Slider Section */
+        .slider-section {
+            margin-top: 0;
+        }
+
+        .carousel-item {
+            height: 500px;
+            position: relative;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 40px;
+            border-radius: 10px;
+            bottom: 50px;
+        }
+
+        .carousel-caption h3 {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        /* Horizontal Marquee */
+        .marquee-horizontal {
+            background: var(--secondary-teal);
+            color: var(--white);
+            padding: 15px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* About Section with Image and Notice */
+        .about-notice-section {
+            padding: 60px 0;
+            background: var(--light-gray);
+        }
+
+        .about-box {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .about-box h3 {
+            color: var(--primary-blue);
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .image-box img {
+            width: 100%;
+            border-radius: 10px;
+
+        }
+
+
+        .image-background-text-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-background-text-container img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+
+        .background-text {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3vw;
+            /* Adjust as needed */
+            color: rgba(255, 255, 255, 0.71);
+            /* Faded effect */
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(32, 64, 128, 0.18);
+            pointer-events: none;
+            user-select: none;
+            white-space: nowrap;
+            z-index: 2;
+        }
+
+
+        .notice-vertical {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .notice-header {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 25px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .notice-body {
+            padding: 20px;
+            height: 435px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .notice-scroll-content {
+            animation: scroll-up 20s linear infinite;
+        }
+
+        .notice-scroll-content:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-up {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        .notice-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .notice-item:last-child {
+            border-bottom: none;
+        }
+
+        .notice-item i {
+            color: var(--secondary-teal);
+            margin-right: 10px;
+        }
+
+        /* Message Boxes Section */
+        .message-boxes {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-blue);
+            font-size: 36px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-teal);
+        }
+
+        .message-box {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            color: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .message-box i {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .message-box h4 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .message-box p {
+            font-size: 16px;
+            margin-bottom: 0;
+        }
+
+        /* Activities Section */
+        .activities-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .activity-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s;
+            height: 100%;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .activity-info {
+            padding: 25px;
+        }
+
+        .activity-info h4 {
+            color: var(--primary-blue);
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .activity-info p {
+            color: var(--text-dark);
+            margin-bottom: 0;
+        }
+
+        /* Principal Message */
+        .principal-section {
+            padding: 60px 0;
+            background: var(--light-gray);
+        }
+
+        .principal-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .principal-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .principal-header h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .principal-content {
+            display: flex;
+            padding: 40px;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .principal-image {
+            flex: 0 0 250px;
+        }
+
+        .principal-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .principal-text {
+            flex: 1;
+        }
+
+        .principal-text h4 {
+            color: var(--primary-blue);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .principal-text p {
+            color: var(--text-dark);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .principal-signature {
+            margin-top: 20px;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--white);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Footer Contact */
+        .footer-contact {
+            background: var(--dark-navy);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-contact h4 {
+            color: var(--white);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .contact-info i {
+            color: var(--secondary-teal);
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--secondary-teal);
+            color: var(--white);
+            border-radius: 50%;
+            font-size: 20px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-violet);
+            transform: scale(1.1);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .quick-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quick-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .quick-links ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .quick-links ul li a:hover {
+            color: var(--secondary-teal);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+            }
+
+            .school-title {
+                text-align: center;
+            }
+
+            .school-title h1 {
+                font-size: 28px;
+            }
+
+            .carousel-item {
+                height: 300px;
+            }
+
+            .carousel-caption h3 {
+                font-size: 24px;
+            }
+
+            .principal-content {
+                flex-direction: column;
+            }
+
+            .principal-image {
+                flex: 0 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Logo Section -->
+    <div class="logo-header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Demo School Logo">
+                <div class="school-title">
+                    <h1>Demo School</h1>
+                    <p>Pioneering Research & Scientific Excellence</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sliding Photo Section -->
+    <section class="slider-section">
+        <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="school.jpeg" alt="Slide 1">
+                    <div class="carousel-caption">
+                        <h3>Welcome to Demo School</h3>
+                        <p>Nurturing Future Scientists and Researchers</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="school.jpeg" alt="Slide 2">
+                    <div class="carousel-caption">
+                        <h3>Career Path to ISRO & DRDO</h3>
+                        <p>Preparing Students for Premier R&D Organizations</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="lab.jpg" alt="Slide 3">
+                    <div class="carousel-caption">
+                        <h3>State-of-the-Art Facilities</h3>
+                        <p>Modern Labs and Research Centers</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroSlider" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroSlider" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Horizontal Marquee -->
+    <div class="marquee-horizontal">
+        <div class="marquee-content">
+            <i class="fas fa-bullhorn"></i> &nbsp;
+            Admissions Open for 2026-27 Academic Session &nbsp; | &nbsp;
+            <i class="fas fa-trophy"></i> &nbsp;
+            Students Win National Science Olympiad Gold Medal &nbsp; | &nbsp;
+            <i class="fas fa-calendar"></i> &nbsp;
+            ISRO Scientist Guest Lecture on November 15, 2025 &nbsp; | &nbsp;
+            <i class="fas fa-book"></i> &nbsp;
+            New Astrophysics Observatory Inaugurated &nbsp; | &nbsp;
+        </div>
+    </div>
+
+    <!-- About, Image, and Notice Section -->
+    <section class="about-notice-section" id="about">
+        <div class="container">
+            <div class="row g-4">
+                <!-- About Column -->
+                <div class="col-md-4">
+                    <div class="about-box">
+                        <h3>About Us</h3>
+                        <p>Demo School is dedicated to fostering research-oriented education and scientific excellence.
+                            We are committed to preparing students for careers in premier R&D organizations.</p>
+                        <p>Our curriculum focuses on ISRO, DRDO, and advanced scientific fields including astrophysics,
+                            quantum physics, and cutting-edge research methodologies.</p>
+                        <p><strong>Our Mission:</strong> To cultivate scientific inquiry, innovation, and critical
+                            thinking in young minds, bridging the gap between academia and real-world research.</p>
+                    </div>
+                </div>
+
+                <!-- Image Column -->
+                <div class="col-md-4">
+                    <div class="image-box">
+                        <div class="image-background-text-container">
+                            <img src="campus.png" alt="School Campus">
+                            <div class="background-text">School Campus</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notice Column -->
+                <div class="col-md-4">
+                    <div class="notice-vertical">
+                        <div class="notice-header">
+                            <i class="fas fa-bell"></i> Notice Board
+                        </div>
+                        <div class="notice-body">
+                            <div class="notice-scroll-content">
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Admissions Open:</strong> Applications for 2026-27 session now available
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Research Internship:</strong> IISc Bangalore applications deadline Nov 30
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Exam Schedule:</strong> Mid-term examinations from December 10-20
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Workshop:</strong> Python for Scientific Computing - Nov 25
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Library Update:</strong> New quantum physics books added
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Science Fair:</strong> Annual exhibition on November 15
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>DRDO Visit:</strong> Industrial visit scheduled for December 5
+                                </div>
+
+                                <!-- Duplicate for seamless loop -->
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Admissions Open:</strong> Applications for 2026-27 session now available
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Research Internship:</strong> IISc Bangalore applications deadline Nov 30
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Exam Schedule:</strong> Mid-term examinations from December 10-20
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Workshop:</strong> Python for Scientific Computing - Nov 25
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Library Update:</strong> New quantum physics books added
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>Science Fair:</strong> Annual exhibition on November 15
+                                </div>
+                                <div class="notice-item">
+                                    <i class="fas fa-circle"></i>
+                                    <strong>DRDO Visit:</strong> Industrial visit scheduled for December 5
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Boxes Section -->
+    <section class="message-boxes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Achievements</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="message-box">
+                        <i class="fas fa-rocket"></i>
+                        <h4>ISRO Pathways</h4>
+                        <p>50+ alumni working in ISRO across various projects</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="message-box">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>DRDO Scientists</h4>
+                        <p>35+ graduates in defense research and development</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="message-box">
+                        <i class="fas fa-star"></i>
+                        <h4>Research Papers</h4>
+                        <p>100+ student research publications in journals</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="message-box">
+                        <i class="fas fa-trophy"></i>
+                        <h4>Awards Won</h4>
+                        <p>150+ national and international science awards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section class="activities-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>School Activities</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="activity-card">
+                        <img src="science.jpeg"
+                            alt="Science Fair">
+                        <div class="activity-info">
+                            <h4>Annual Science Fair</h4>
+                            <p>Students showcase innovative research projects and experiments in our annual science
+                                exhibition held every year.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="activity-card">
+                        <img src="sport.jpeg" alt="Sports Day">
+                        <div class="activity-info">
+                            <h4>Sports & Athletics</h4>
+                            <p>Regular sports activities and annual athletic meets to promote physical fitness and team
+                                spirit among students.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="activity-card">
+                        <img src="function.jpg"
+                            alt="Cultural Festival">
+                        <div class="activity-info">
+                            <h4>Cultural Festival</h4>
+                            <p>Annual cultural programs featuring music, dance, drama, and art exhibitions celebrating
+                                creativity and talent.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principal Message Section -->
+    <section class="principal-section">
+        <div class="container">
+            <div class="principal-card">
+                <div class="principal-header">
+                    <h3>Principal's Message</h3>
+                </div>
+                <div class="principal-content">
+                    <div class="principal-image">
+                        <img src="principal.jpg" alt="Principal">
+                    </div>
+                    <div class="principal-text">
+                        <h4>Dr. Demo Deb</h4>
+                        <p>Dear Students, Parents, and Well-wishers,</p>
+                        <p>It is my privilege to welcome you to Demo School, an institution committed to nurturing the
+                            next generation of scientists, researchers, and innovators. Our school embodies the spirit
+                            of scientific inquiry and excellence.</p>
+                        <p>At Demo School, we believe that education is not just about acquiring knowledge, but about
+                            developing a research mindset, critical thinking abilities, and the courage to explore the
+                            unknown. Our curriculum is designed to prepare students for careers in premier research
+                            organizations like ISRO, DRDO, and academic institutions worldwide.</p>
+                        <p>We provide state-of-the-art laboratories, expert faculty with research backgrounds, and
+                            opportunities for students to engage in real scientific projects. Our students don't just
+                            learn science--they live it, breathe it, and contribute to it.</p>
+                        <p>I invite you to join us in this journey of scientific discovery and innovation. Together, we
+                            will shape the future of research and technology.</p>
+                        <div class="principal-signature">
+                            <p>Warm Regards,<br>
+                                <strong>Dr. Demo Deb</strong><br>
+                                Principal, Demo School
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="lab.jpg" alt="Science Lab">
+                    <div class="gallery-overlay">
+                        <p>Advanced Science Laboratory</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="labo.jpg" alt="Observatory">
+                    <div class="gallery-overlay">
+                        <p>Chemistry Lab</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="function.jpg" alt="Event">
+                    <div class="gallery-overlay">
+                        <p>Annual Fest</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="library.jpg" alt="Library">
+                    <div class="gallery-overlay">
+                        <p>Research Library</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Contact Section -->
+    <footer class="footer-contact" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h4>About Demo School</h4>
+                    <p>We are committed to nurturing young minds for careers in research, science, and innovation at
+                        premier institutions like ISRO, DRDO, and leading universities worldwide.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+
+                        <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Quick Links</h4>
+                    <div class="quick-links">
+                        <ul>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#admissions">Admissions</a></li>
+                            <li><a href="#research">Research Programs</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Contact Information</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> School Address, City, State - PIN Code</p>
+                        <p><i class="fas fa-envelope"></i> info@demoschool.edu</p>
+                        <p><i class="fas fa-globe"></i> www.demoschool.edu</p>
+                        <p><i class="fas fa-clock"></i> Mon - Sat: 8:00 AM - 4:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Demo School. All Rights Reserved. | Designed for Excellence in Research Education</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,362 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Demo School</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #204080;
+            --secondary-teal: #18b798;
+            --light-blue: #43aeea;
+            --dark-navy: #134074;
+            --accent-violet: #7d49a1;
+            --light-gray: #f4f6f9;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .logo-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+        
+        .logo-container img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .school-title h1 {
+            color: var(--white);
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .school-title p {
+            color: rgba(255,255,255,0.95);
+            font-size: 18px;
+            margin: 5px 0 0 0;
+            font-style: italic;
+        }
+        
+        .navbar {
+            background: var(--primary-blue) !important;
+            padding: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-nav {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            padding: 15px 25px !important;
+            transition: all 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background: var(--secondary-teal);
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-teal));
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .page-header h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            justify-content: center;
+            margin-bottom: 0;
+        }
+        
+        .breadcrumb-item a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--white);
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            background: var(--white);
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 10px 25px;
+            margin: 5px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--white);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .footer-contact {
+            background: var(--dark-navy);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="logo.jpg" alt="Demo School Logo">
+                <div class="school-title">
+                    <h1>Demo School</h1>
+                    <p>Pioneering Research & Scientific Excellence</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="container">
+            <h2>Gallery</h2>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Gallery</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Campus</button>
+                <button class="filter-btn">Labs</button>
+                <button class="filter-btn">Events</button>
+                <button class="filter-btn">Sports</button>
+                <button class="filter-btn">Cultural</button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="lab.jpg" alt="Science Lab">
+                    <div class="gallery-overlay">
+                        <h5>Advanced Science Laboratory</h5>
+                        <p>Physics Lab</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="labo.jpg" alt="Observatory">
+                    <div class="gallery-overlay">
+                        <h5>Advanced Science Laboratory</h5>
+                        <p>Chemistry Lab</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="school.jpeg" alt="Campus">
+                    <div class="gallery-overlay">
+                        <h5>School Campus</h5>
+                        <p>Main Building & Grounds</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="library.jpg" alt="Library">
+                    <div class="gallery-overlay">
+                        <h5>Research Library</h5>
+                        <p>10,000+ Books & Journals</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="sciencefunc.jpeg" alt="Science Fair">
+                    <div class="gallery-overlay">
+                        <h5>Science Fair 2025</h5>
+                        <p>Annual Exhibition</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="computer.jpeg" alt="Computer Lab">
+                    <div class="gallery-overlay">
+                        <h5>Computer Lab</h5>
+                        <p>Coding & Programming</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="sport.jpeg" alt="Sports">
+                    <div class="gallery-overlay">
+                        <h5>Annual Sports Day</h5>
+                        <p>Athletic Competition</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="function.jpg" alt="Cultural">
+                    <div class="gallery-overlay">
+                        <h5>Cultural Festival</h5>
+                        <p>Dance & Drama Performance</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="tiffin.jpg" alt="Robotics">
+                    <div class="gallery-overlay">
+                        <h5>Lunch Break</h5>
+                        <p>Tiffin Time</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="sciencefunc1.jpeg" alt="Auditorium">
+                    <div class="gallery-overlay">
+                        <h5>School Auditorium</h5>
+                        <p>500+ Seating Capacity</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="experiment.jpeg" alt="Biology Lab">
+                    <div class="gallery-overlay">
+                        <h5>Biology Laboratory</h5>
+                        <p>Biotechnology Research</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="observatory.webp" alt="Awards">
+                    <div class="gallery-overlay">
+                        <h5>Field Visit</h5>
+                        <p>Space Observatory</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-contact">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Demo School. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
